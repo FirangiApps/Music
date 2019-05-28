@@ -1045,6 +1045,10 @@ public class MediaPlaybackService extends Service {
 
     @Override
     public boolean onUnbind(Intent intent) {
+        NotificationManager mNotificationManager = (NotificationManager)
+                getSystemService(Context.NOTIFICATION_SERVICE);
+        mNotificationManager.cancelAll();
+        
         mServiceInUse = false;
 
         // Take a snapshot of the current playlist
